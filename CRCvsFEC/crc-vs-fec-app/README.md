@@ -1,52 +1,35 @@
-# CRC vs FEC Comparison Application
+# Comparación CRC vs FEC
 
-This project implements a comparison between the Cyclic Redundancy Check (CRC) and Forward Error Correction (FEC) methods using a modern web interface built with Streamlit. The application allows users to input an 8-bit word and a polynomial, then measures and displays the execution times for both methods.
+Esta aplicación permite comparar el algoritmo CRC y el código FEC (Hamming(12,8)) usando una palabra de 8 bits y un polinomio en binario.  
+Se muestran los tiempos de ejecución y la cantidad de operaciones XOR realizadas por cada algoritmo, lo que ayuda a entender el costo computacional y de hardware.
 
-## Features
+## Cómo usar
 
-- User-friendly interface for inputting data.
-- Real-time comparison of CRC and FEC execution times.
-- Visual representation of the results using bar charts.
-
-## Requirements
-
-To run this application, you need to have Python installed on your machine. The following libraries are required:
-
-- Streamlit
-- Matplotlib
-
-## Installation
-
-1. Clone the repository:
-
+1. Instala las dependencias:
    ```
-   git clone <repository-url>
-   cd crc-vs-fec-app
+   pip install streamlit pandas
    ```
 
-2. Install the required packages:
-
+2. Ejecuta la aplicación:
    ```
-   pip install -r requirements.txt
+   streamlit run app.py
    ```
 
-## Running the Application
+3. Ingresa una palabra de 8 bits (por ejemplo: `11010101`) y un polinomio en binario (por ejemplo: `1011`).
 
-To start the application, run the following command in your terminal:
+4. Haz clic en "Comparar" para ver los resultados y las gráficas.
 
-```
-streamlit run app.py
-```
+## ¿Qué muestra la app?
 
-This will launch the application in your default web browser.
+- **CRC Resto:** Resultado del cálculo CRC.
+- **FEC Codificado:** Palabra codificada con Hamming(12,8).
+- **Tiempo CRC/FEC:** Tiempo de ejecución de cada algoritmo.
+- **Operaciones XOR:** Cantidad de operaciones XOR realizadas por cada algoritmo.
+- **Gráficas:** Comparación visual de tiempos y operaciones.
 
-## Usage
+## Nota educativa
 
-1. Enter an 8-bit binary word in the designated input field.
-2. Enter a binary polynomial (minimum 2 bits) in the corresponding input field.
-3. Click the "Compare" button to see the results.
-4. The application will display the CRC remainder, FEC encoded word, and the execution times for both methods.
+El número de operaciones XOR es una aproximación al costo de implementación en hardware.  
+CRC suele ser más eficiente en hardware, aunque en software la diferencia puede variar.
 
-## Conclusion
-
-This application demonstrates the efficiency of the CRC method compared to FEC, showcasing its low computational cost while maintaining data integrity.
+---
